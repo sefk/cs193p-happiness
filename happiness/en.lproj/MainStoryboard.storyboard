@@ -24,7 +24,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="faceview" destination="Tbo-Ka-JLW" id="qa6-4j-uQi"/>
+                        <outlet property="faceView" destination="Tbo-Ka-JLW" id="BVX-5k-Lfe"/>
                     </connections>
                 </viewController>
             </objects>
@@ -37,7 +37,7 @@
         <class className="happinessViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/happinessViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="faceview" candidateClass="FaceView"/>
+                <relationship kind="outlet" name="faceView" candidateClass="FaceView"/>
             </relationships>
         </class>
     </classes>

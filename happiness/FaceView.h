@@ -10,4 +10,9 @@
 
 @interface FaceView : UIView
 
+@property (nonatomic) CGFloat scale;
+
+- (void)pinch:(UIPinchGestureRecognizer *)gesture;
+
+
 @end
