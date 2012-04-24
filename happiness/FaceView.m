@@ -10,6 +10,7 @@
 
 @implementation FaceView
 
+@synthesize dataSource = _dataSource;
 
 @synthesize scale = _scale;
 #define DEFAULT_SCALE 0.90
@@ -39,29 +40,15 @@
     }
 }
 
-- (void)setup
-{
-    self.contentMode = UIViewContentModeRedraw; // if our bounds changes, redraw ourselves
-}
-
-- (void)awakeFromNib
-{
-    [self setup]; // get initialized when we come out of a storyboard
-}
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setup]; // get initialized if someone uses alloc/initWithFrame: to create us
+        // get initialized if someone uses alloc/initWithFrame: to create us
     }
     return self;
 }
-
-
-
-
-
 
 
 - (void)drawCircleAtPoint:(CGPoint)p 
@@ -125,7 +112,9 @@
     CGPoint mouthCP2 = mouthEnd;
     mouthCP2.x -= MOUTH_H * faceSize * 2/3;
     
-    float smile = 1.0; // this should be delegated! it's our View's data!
+    float smile = [self.dataSource smileForFaceView:self];
+    if (smile < -1) smile = -1;
+    if (smile > 1) smile = 1;
     
     CGFloat smileOffset = MOUTH_SMILE * faceSize * smile;
     mouthCP1.y += smileOffset;
